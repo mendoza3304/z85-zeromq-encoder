@@ -35,3 +35,10 @@ The trade-off: this library rejects input that is not a multiple of 4 bytes (for
 - Input length is strictly enforced. `encode(new Uint8Array(3))` throws. `decode("1234")` throws. If you have data that is not a multiple of 4 bytes, pad it yourself and track the real length out-of-band.
 - Invalid Z85 characters cause a throw on decode, not silent substitution.
 - The library accepts `Uint8Array` only for `encode` — not regular arrays, not `Buffer`. Convert first if needed.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
