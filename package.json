@@ -1,6 +1,6 @@
 {
   "name": "z85-zeromq-encoder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Encodes and decodes ZeroMQ Z85 variant of Base85 for binary-to-text in ZeroMQ protocols.",
   "type": "module",
   "main": "src/index.js",
